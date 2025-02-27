@@ -26,18 +26,18 @@ public class Main {
         System.out.println("ret2 = " + ret2);
 
         // 직접 map() 활용해보기
-        // 1. 익명클래스를 변수에 담아 전달 안되는 이유찾기
-//        Function<Integer, Integer> function = new Function<>() {
-//
-//            @Override
-//            public Integer apply(Integer integer) {
-//                return integer * 10;
-//            }
-//        };
-//        List<Integer> ret3 = arrayList.stream()
-//                .map(function)
-//                .collect(Collectors.toList());
-//        System.out.println("ret3 = " + ret3);
+        // 1. 익명클래스를 변수에 담아 전달
+        Function<Integer, Integer> function = new Function<>() {
+
+            @Override
+            public Integer apply(Integer integer) {
+                return integer * 10;
+            }
+        };
+        List<Integer> ret3 = arrayList.stream()
+                .map(function)
+                .collect(Collectors.toList());
+        System.out.println("ret3 = " + ret3);
 
         // 2. 람다식을 변수에 담아 전달
         Function<Integer, Integer> functionLambda = (num -> num * 10);
